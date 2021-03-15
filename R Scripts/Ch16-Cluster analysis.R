@@ -19,8 +19,9 @@ nutrient.scaled <- as.data.frame(scale(nutrient))
 d <- dist(nutrient.scaled)                                          
 fit.average <- hclust(d, method="average") 
 
-library(ggdendro)                          
-dedgrogram(fit.average) + 
+library(ggplot2)
+library(ggdendro)
+ggdendrogram(fit.average) +
   labs(title="Average Linkage Clustering")
 
 
@@ -163,13 +164,13 @@ dipdist <- clusterabilitytest(df[-3], test="dip")
 dipdist
 
 # CCC chart
-CCC = nc$All.index[, 4]
+CCC <- nc$All.index[, 4]
 k <- length(CCC)
 plotdata <- data.frame(CCC = CCC, k = seq_len(k))
 ggplot(plotdata, aes(x=k, y=CCC)) +
   geom_point() + geom_line() +
   theme_minimal() +
   scale_x_continuous(breaks=seq_len(k)) +
-  labs(x="Number of Clusters")ggplot(plotdata, aes(x=k, y=CCC)) +
+  labs(x="Number of Clusters") + ggplot(plotdata, aes(x=k, y=CCC)) +
   geom_point() + geom_line()
 
