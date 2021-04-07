@@ -29,3 +29,4 @@ help(Arthritis)
 Arthritis
 example(Arthritis)
 
+# Section 1.4  https://www.tidyverse.org/packages/
